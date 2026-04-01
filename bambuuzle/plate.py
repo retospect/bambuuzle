@@ -1,0 +1,44 @@
+"""Plate data model for Bambu 3MF files."""
+
+from __future__ import annotations
+
+import hashlib
+import json
+from dataclasses import dataclass, field
+from typing import Optional
+
+
+@dataclass
+class Plate:
+    """Represents a single plate in a Bambu .gcode.3mf file."""
+
+    number: int
+    gcode: str = ""
+    metadata: dict = field(default_factory=dict)
+    thumbnail_png: Optional[bytes] = None
+    thumbnail_small_png: Optional[bytes] = None
+
+    @property
+    def md5(self) -> str:
+        """Compute MD5 hex digest of the gcode bytes."""
+        return hashlib.md5(self.gcode.encode("utf-8")).hexdigest()
+
+    @property
+    def gcode_path(self) -> str:
+        return f"Metadata/plate_{self.number}.gcode"
+
+    @property
+    def md5_path(self) -> str:
+        return f"Metadata/plate_{self.number}.gcode.md5"
+
+    @property
+    def json_path(self) -> str:
+        return f"Metadata/plate_{self.number}.json"
+
+    @property
+    def thumbnail_path(self) -> str:
+        return f"Metadata/plate_{self.number}.png"
+
+    @property
+    def thumbnail_small_path(self) -> str:
+        return f"Metadata/plate_{self.number}_small.png"
