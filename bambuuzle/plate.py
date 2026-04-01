@@ -3,9 +3,7 @@
 from __future__ import annotations
 
 import hashlib
-import json
 from dataclasses import dataclass, field
-from typing import Optional
 
 
 @dataclass
@@ -15,8 +13,8 @@ class Plate:
     number: int
     gcode: str = ""
     metadata: dict = field(default_factory=dict)
-    thumbnail_png: Optional[bytes] = None
-    thumbnail_small_png: Optional[bytes] = None
+    thumbnail_png: bytes | None = None
+    thumbnail_small_png: bytes | None = None
 
     @property
     def md5(self) -> str:

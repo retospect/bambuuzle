@@ -1,12 +1,17 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "bambuuzle"
 version = "0.1.0"
 description = "Extract and re-insert gcode from Bambu Lab .gcode.3mf files"
 authors = [
-    {name = "Reto Stamm", email = "reto@retostamm.com"}
+    {name = "Reto Stamm", email = "reto@retostamm.com"},
 ]
 readme = "README.md"
 license = "MIT"
+requires-python = ">=3.11"
 keywords = ["bambu", "bambulab", "3mf", "gcode", "3d-printing", "bambu-lab", "slicer", "orca-slicer", "zip", "md5"]
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -15,16 +20,13 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
-    "Programming Language :: Python :: 3.14",
     "Topic :: Multimedia :: Graphics :: Graphics Conversion",
     "Topic :: System :: Archiving :: Packaging",
     "Typing :: Typed",
 ]
-requires-python = ">=3.10"
 dependencies = []
 
 [project.urls]
@@ -35,34 +37,27 @@ Issues = "https://github.com/retospect/bambuuzle/issues"
 [project.scripts]
 bambuuzle = "bambuuzle.cli:main"
 
-[tool.poetry]
-name = "bambuuzle"
-version = "0.1.0"
-description = "Extract and re-insert gcode from Bambu Lab .gcode.3mf files"
-authors = ["Reto Stamm <reto@retostamm.com>"]
-packages = [{include = "bambuuzle"}]
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "ruff>=0.11",
+    "mypy>=1.15",
+    "pre-commit>=4",
+]
 
-[tool.poetry.scripts]
-bambuuzle = "bambuuzle.cli:main"
+[tool.ruff]
+target-version = "py311"
+line-length = 88
 
-[tool.poetry.dependencies]
-python = ">=3.10"
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+ignore = ["E501"]
 
-[tool.poetry.group.dev.dependencies]
-pytest = "^9.0.0"
-pytest-cov = "^5.0.0"
-black = ">=24,<26"
-Pillow = ">=10.0.0"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+check_untyped_defs = true
 
 [tool.pytest.ini_options]
-minversion = "6.0"
-addopts = "-ra -q"
 testpaths = ["tests"]
-
-[tool.black]
-line-length = 88
-target-version = ['py310', 'py311', 'py312', 'py313', 'py314']

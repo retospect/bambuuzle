@@ -22,7 +22,7 @@ def put_plate(args: argparse.Namespace) -> None:
     """Insert a plate's gcode into a .gcode.3mf file."""
     bf = BambuFile.open(args.file)
     gcode_file = f"plate_{args.plate}.gcode"
-    with open(gcode_file, "r") as f:
+    with open(gcode_file) as f:
         gcode = f.read()
 
     try:

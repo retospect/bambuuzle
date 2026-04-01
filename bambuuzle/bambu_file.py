@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import Callable, Optional
+from collections.abc import Callable
 
 from .archive import detect_plates, read_archive, write_archive
 from .plate import Plate
@@ -90,8 +90,8 @@ class BambuFile:
     def add_plate(
         self,
         gcode: str,
-        number: Optional[int] = None,
-        metadata: Optional[dict] = None,
+        number: int | None = None,
+        metadata: dict | None = None,
     ) -> Plate:
         """Add a new plate with the given gcode."""
         if number is None:
