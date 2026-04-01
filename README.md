@@ -1,7 +1,9 @@
 # bambuuzle
 
 [![PyPI version](https://badge.fury.io/py/bambuuzle.svg)](https://badge.fury.io/py/bambuuzle)
+[![Python 3.10+](https://img.shields.io/pypi/pyversions/bambuuzle.svg)](https://pypi.org/project/bambuuzle/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Downloads](https://img.shields.io/pypi/dm/bambuuzle.svg)](https://pypi.org/project/bambuuzle/)
 
 Extract and re-insert G-code from Bambu Lab `.gcode.3mf` files.
 

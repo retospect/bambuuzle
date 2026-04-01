@@ -7,18 +7,22 @@ authors = [
 ]
 readme = "README.md"
 license = "MIT"
-keywords = ["bambu", "bambulab", "3mf", "gcode", "3d-printing"]
+keywords = ["bambu", "bambulab", "3mf", "gcode", "3d-printing", "bambu-lab", "slicer", "orca-slicer", "zip", "md5"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
     "Intended Audience :: Manufacturing",
+    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Topic :: Multimedia :: Graphics :: Graphics Conversion",
+    "Topic :: System :: Archiving :: Packaging",
+    "Typing :: Typed",
 ]
 requires-python = ">=3.10"
 dependencies = []
@@ -26,6 +30,7 @@ dependencies = []
 [project.urls]
 Homepage = "https://github.com/retospect/bambuuzle"
 Repository = "https://github.com/retospect/bambuuzle"
+Issues = "https://github.com/retospect/bambuuzle/issues"
 
 [project.scripts]
 bambuuzle = "bambuuzle.cli:main"
@@ -60,4 +65,4 @@ testpaths = ["tests"]
 
 [tool.black]
 line-length = 88
-target-version = ['py310', 'py311', 'py312', 'py313']
+target-version = ['py310', 'py311', 'py312', 'py313', 'py314']
