@@ -124,9 +124,9 @@ class BambuFile:
             gcode_bytes = plate.gcode.encode("utf-8")
             entries[plate.gcode_path] = gcode_bytes
             entries[plate.md5_path] = plate.md5.encode("utf-8")
-            entries[plate.json_path] = json.dumps(
-                plate.metadata, indent=2
-            ).encode("utf-8")
+            entries[plate.json_path] = json.dumps(plate.metadata, indent=2).encode(
+                "utf-8"
+            )
             if plate.thumbnail_png is not None:
                 entries[plate.thumbnail_path] = plate.thumbnail_png
             if plate.thumbnail_small_png is not None:

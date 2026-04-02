@@ -23,13 +23,19 @@ def generate_logo(output_path: str = "logo.png") -> None:
         small_font = ImageFont.truetype("DejaVuSansMono.ttf", small_size)
     except OSError:
         try:
-            font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf", font_size)
-            small_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf", small_size)
+            font = ImageFont.truetype(
+                "/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf", font_size
+            )
+            small_font = ImageFont.truetype(
+                "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf", small_size
+            )
         except OSError:
             try:
                 # macOS
                 font = ImageFont.truetype("/System/Library/Fonts/Menlo.ttc", font_size)
-                small_font = ImageFont.truetype("/System/Library/Fonts/Menlo.ttc", small_size)
+                small_font = ImageFont.truetype(
+                    "/System/Library/Fonts/Menlo.ttc", small_size
+                )
             except OSError:
                 font = ImageFont.load_default()
                 small_font = ImageFont.load_default()

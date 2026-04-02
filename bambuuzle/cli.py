@@ -46,20 +46,14 @@ def main() -> None:
     # get_plate
     gp = subparsers.add_parser("get_plate", help="Extract plate gcode to a file")
     gp.add_argument("file", help="Input .gcode.3mf file")
-    gp.add_argument(
-        "--plate", type=int, default=1, help="Plate number (default: 1)"
-    )
+    gp.add_argument("--plate", type=int, default=1, help="Plate number (default: 1)")
     gp.set_defaults(func=get_plate)
 
     # put_plate
     pp = subparsers.add_parser("put_plate", help="Insert plate gcode from a file")
     pp.add_argument("file", help="Input .gcode.3mf file")
-    pp.add_argument(
-        "--plate", type=int, default=1, help="Plate number (default: 1)"
-    )
-    pp.add_argument(
-        "--output", "-o", help="Output file (default: overwrite input)"
-    )
+    pp.add_argument("--plate", type=int, default=1, help="Plate number (default: 1)")
+    pp.add_argument("--output", "-o", help="Output file (default: overwrite input)")
     pp.set_defaults(func=put_plate)
 
     args = parser.parse_args()
